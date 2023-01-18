@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>pomodoro timer</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=open+sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="./style.css">
+        <style>
+            :root{
+                font-size: 62.5%;
+
+                --color-primary: hsl(235, 35%, 19%);
+                --color-secondary: hsl(358,78%,69%);
+                --color-font: hsla(0,0%,100%,0.902);
+                
+                --color-shadow: hsl(235,36%,35%);
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+
+            }
+            html,body{
+                height: 100%;
+                background-color: var(--color-primary);
+                font-size: 1.6rem;
+                font-family: 'open sans', sans-serif;
+            }
+
+            p,
+            i,
+            h1 {
+                color: var(--color-font)
+            }
+
+            i {
+                font-size: 3.2rem;
+            }
+            h1 {
+                font-size: 3.2rem;
+            }
+            section {
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+            .container {
+                width: min(42.5rem,100%);
+                margin-inline: auto;
+                padding-inline: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .painel { 
+                display: grid;
+                grid-template-columns: 1fr,1fr;
+                text-align: center;
+                width: 20rem;
+                margin-block:5rem;
+                padding: 1rem;
+                border-radius: 10rem;
+                -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow);
+                box-shadow: 0px 0px 15px 10px var(--color-shadow);
+
+                
+            }
+            .painel p {
+                opacity: .8;
+                transition: 1s ease-in;
+            }
+            .painel p.active {
+                opacity: 1;
+                color: var(--color-secondary);
+            }
+            .timer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30rem;
+                height: 30rem;
+                border-radius: 50%;
+                -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow);
+                box-shadow: 0px 0px 15px 10px var(--color-shadow);
+            }
+
+            .circle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 26rem;
+                height: 26rem;
+                border-radius: 50%;
+                background-color: var(--color-secondary);
+                position: relative;
+            }
+            .circle#before {
+                content: '';
+                position: absolute;
+                width: 95%;
+                height: 95%;
+                border-radius: 50%;
+                background-color: var(--color-primary);
+            }
+            .time {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+            }
+            .timer p {
+                font-size: 5.6rem;
+            }
+            .time p:nth-of-type(2) {
+                position: relative;
+                top: -.5rem;
+                margin-inline: 1rem;
+            }
+            .controls {
+                margin-top: 3rem;
+
+            }
+            .controls button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .controls #reset {
+                display: none;
+            }
+        </style>
+
+    </head>
+    <body>
+        <section>
+            <div class="container">
+                <h1>pomodoro</h1>
+                <div class="painel">
+                    <p id="work">work</p>
+                    <p id="break">break</p>
+                </div>
+                <div class="timer">
+                    <div class="circle">
+                        <div class="time">
+                            <p id="minutes">25</p>>
+                            <p>:</p>
+                            <p id="seconds">30</p>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="controls">
+                    <button id="start" onclick="start()"><i class="fa-solid fa-play"></i>"</button>
+                    <a id="reset" href="/"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                </div>
+            </div>
+    
+        </section>
+    
+        <script src="./script.js"></script>
+    </body>
+</html>
